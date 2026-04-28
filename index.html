@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Makyaj Urunleri Satis Sitesi</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap 5 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- SB Admin 2 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.1.4/css/sb-admin-2.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --rose: #d97c99;
+      --rose-dark: #bd5d7c;
+      --rose-soft: #f8e9ef;
+      --text-main: #232326;
+      --sidebar-bg: #fffafb;
+      --border-soft: #f0dce4;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #fffefe;
+      color: var(--text-main);
+      font-family: "Poppins", sans-serif;
+    }
+
+    #wrapper {
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, h4, h5, .brand-title {
+      font-family: "Playfair Display", serif;
+      letter-spacing: 0.4px;
+    }
+
+    .sidebar {
+      background: var(--sidebar-bg);
+      border-right: 1px solid #eee;
+    }
+
+    .sidebar .nav-item .nav-link,
+    .sidebar .sidebar-brand,
+    .sidebar .sidebar-heading {
+      color: #5f5f66 !important;
+    }
+
+    .sidebar .nav-item .nav-link i {
+      color: var(--rose-dark);
+    }
+
+    .sidebar .nav-item.active .nav-link {
+      font-weight: 600;
+      color: #26262a !important;
+    }
+
+    .sidebar-divider {
+      border-top-color: #ececec;
+    }
+
+    .topbar {
+      background: #ffffff !important;
+      border-bottom: 1px solid #f1f1f1;
+    }
+
+    .brand-title {
+      font-size: 1.25rem;
+      margin: 0;
+    }
+
+    .cart-link {
+      color: #3b3b40;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .cart-link i {
+      color: var(--rose-dark);
+    }
+
+    .hero-title {
+      font-weight: 700;
+      color: #1f1f22;
+    }
+
+    .hero-subtitle {
+      color: #74747a;
+    }
+
+    .product-card {
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0.75rem 1.5rem rgba(88, 74, 80, 0.08);
+    }
+
+    .product-card img {
+      height: 190px;
+      object-fit: cover;
+      background: var(--rose-soft);
+    }
+
+    .fondoten-image {
+      height: 150px !important;
+      object-fit: contain !important;
+      background: #f6f6f6 !important;
+      padding: 8px;
+    }
+
+    .maskara-image {
+      height: 160px !important;
+      object-fit: contain !important;
+      background: #f6f6f6 !important;
+      padding: 10px;
+    }
+
+    .ruj-image {
+      height: 160px !important;
+      object-fit: contain !important;
+      background: #f6f6f6 !important;
+      padding: 10px;
+    }
+
+    .allik-image {
+      height: 160px !important;
+      object-fit: contain !important;
+      background: #f6f6f6 !important;
+      padding: 10px;
+    }
+
+    .price-tag {
+      font-weight: 600;
+      color: #2c2c31;
+    }
+
+    .btn-rose {
+      background-color: var(--rose);
+      border-color: var(--rose);
+      color: #fff;
+    }
+
+    .btn-rose:hover {
+      background-color: var(--rose-dark);
+      border-color: var(--rose-dark);
+      color: #fff;
+    }
+
+    .btn-rose-soft {
+      background-color: var(--rose-soft);
+      border-color: var(--rose-soft);
+      color: #8e4460;
+    }
+
+    .btn-rose-soft:hover {
+      background-color: #f4d9e3;
+      border-color: #f4d9e3;
+      color: #7d3d56;
+    }
+  </style>
+</head>
+<body id="page-top">
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav sidebar accordion" id="accordionSidebar">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+        <div class="sidebar-brand-icon">
+          <i class="fas fa-spa"></i>
+        </div>
+        <div class="sidebar-brand-text mx-2">Makyaj Kategorileri</div>
+      </a>
+
+      <hr class="sidebar-divider my-0" />
+
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-house"></i>
+          <span>Ana Sayfa</span>
+        </a>
+      </li>
+
+      <hr class="sidebar-divider" />
+
+      <div class="sidebar-heading">Urun Gruplari</div>
+
+      <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-fw fa-kiss-wink-heart"></i><span>Rujlar</span></a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-fw fa-droplet"></i><span>Fondotenler</span></a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-fw fa-eye"></i><span>Far Paletleri</span></a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-fw fa-sparkles"></i><span>Aydinlaticilar</span></a></li>
+      <li class="nav-item"><a class="nav-link" href="checkout.html"><i class="fas fa-fw fa-shopping-cart"></i><span id="sidebar-cart-total">Sepet (0 TL)</span></a></li>
+
+      <hr class="sidebar-divider d-none d-md-block" />
+    </ul>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow-sm px-4">
+          <h1 class="brand-title">MAKYAJ KUTUSU</h1>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item d-flex align-items-center">
+              <a class="cart-link" href="checkout.html">
+                <i class="fas fa-shopping-cart me-2"></i><span id="topbar-cart-total">Sepet (0 TL)</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="container-fluid pb-4">
+          <section class="text-center container py-2">
+            <div class="row py-lg-3">
+              <div class="col-lg-8 col-md-10 mx-auto">
+                <h2 class="hero-title">Makyaj Urunleri Satis Sitesi</h2>
+                <p class="lead hero-subtitle">
+                  En cok tercih edilen urunleri kesfet, stilini tamamla.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <div class="container mb-4">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+                <div>
+                  <h5 class="mb-1"><i class="fas fa-shopping-bag me-2"></i>Sepetim</h5>
+                  <p id="cart-status-text" class="text-muted mb-0">Sepetinizde henuz urun bulunmuyor.</p>
+                </div>
+                <div class="text-md-end">
+                  <div id="cart-total-text" class="fw-semibold mb-2">Toplam: 0 TL</div>
+                  <div class="d-flex gap-2 justify-content-md-end">
+                    <a class="btn btn-sm btn-rose-soft" href="checkout.html">Sepete git</a>
+                    <button class="btn btn-sm btn-rose">Odeme yap</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="album py-3">
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+                <div class="col">
+                  <div class="card product-card h-100 shadow-sm">
+                    <img src="images/kalici-ruj.png" class="card-img-top ruj-image" alt="Kalici Ruj" />
+                    <div class="card-body d-flex flex-column">
+                      <h5 class="card-title">Kalici Ruj</h5>
+                      <p class="card-text text-muted">Gün boyu kalici ve kadifemsi bitis.</p>
+                      <div class="mt-auto d-flex justify-content-between align-items-center">
+                        <span class="price-tag">500 TL</span>
+                        <div class="d-flex gap-2">
+                          <button class="btn btn-sm btn-rose-soft add-to-cart-btn" data-price="500">Sepete ekle</button>
+                          <button class="btn btn-sm btn-rose">Satin al</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="card product-card h-100 shadow-sm">
+                    <img src="images/fondoten.png" class="card-img-top fondoten-image" alt="Likit Fondoten" />
+                    <div class="card-body d-flex flex-column">
+                      <h5 class="card-title">Likit Fondoten</h5>
+                      <p class="card-text text-muted">Dogal gorunumlu orta-yuksek kapaticilik.</p>
+                      <div class="mt-auto d-flex justify-content-between align-items-center">
+                        <span class="price-tag">3000 TL</span>
+                        <div class="d-flex gap-2">
+                          <button class="btn btn-sm btn-rose-soft add-to-cart-btn" data-price="3000">Sepete ekle</button>
+                          <button class="btn btn-sm btn-rose">Satin al</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="card product-card h-100 shadow-sm">
+                    <img src="images/far-paleti.png" class="card-img-top" alt="Far Paleti" />
+                    <div class="card-body d-flex flex-column">
+                      <h5 class="card-title">Far Paleti</h5>
+                      <p class="card-text text-muted">Gunluk ve gece makyaji icin 12 renk secenegi.</p>
+                      <div class="mt-auto d-flex justify-content-between align-items-center">
+                        <span class="price-tag">520 TL</span>
+                        <div class="d-flex gap-2">
+                          <button class="btn btn-sm btn-rose-soft add-to-cart-btn" data-price="520">Sepete ekle</button>
+                          <button class="btn btn-sm btn-rose">Satin al</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="card product-card h-100 shadow-sm">
+                    <img src="images/allik.png" class="card-img-top allik-image" alt="Allik" />
+                    <div class="card-body d-flex flex-column">
+                      <h5 class="card-title">Kadife Allik</h5>
+                      <p class="card-text text-muted">Yuze canli ve yumusak bir renk kazandirir.</p>
+                      <div class="mt-auto d-flex justify-content-between align-items-center">
+                        <span class="price-tag">2000 TL</span>
+                        <div class="d-flex gap-2">
+                          <button class="btn btn-sm btn-rose-soft add-to-cart-btn" data-price="290">Sepete ekle</button>
+                          <button class="btn btn-sm btn-rose">Satin al</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="card product-card h-100 shadow-sm">
+                    <img src="images/maskara.png" class="card-img-top maskara-image" alt="Maskara" />
+                    <div class="card-body d-flex flex-column">
+                      <h5 class="card-title">Hacim Veren Maskara</h5>
+                      <p class="card-text text-muted">Kirpiklerde yogunluk ve belirginlik etkisi.</p>
+                      <div class="mt-auto d-flex justify-content-between align-items-center">
+                        <span class="price-tag">800 TL</span>
+                        <div class="d-flex gap-2">
+                          <button class="btn btn-sm btn-rose-soft add-to-cart-btn" data-price="330">Sepete ekle</button>
+                          <button class="btn btn-sm btn-rose">Satin al</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="card product-card h-100 shadow-sm">
+                    <img src="images/aydinlatici.png" class="card-img-top" alt="Aydinlatici" />
+                    <div class="card-body d-flex flex-column">
+                      <h5 class="card-title">Ipeksi Aydinlatici</h5>
+                      <p class="card-text text-muted">Cilde isiltli ve pürüzsüz bir dokunus verir.</p>
+                      <div class="mt-auto d-flex justify-content-between align-items-center">
+                        <span class="price-tag">410 TL</span>
+                        <div class="d-flex gap-2">
+                          <button class="btn btn-sm btn-rose-soft add-to-cart-btn" data-price="410">Sepete ekle</button>
+                          <button class="btn btn-sm btn-rose">Satin al</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (SB Admin 2 dependency) -->
+  <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Bootstrap 5 JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- jQuery Easing (SB Admin 2 dependency) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+  <!-- SB Admin 2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@4.1.4/js/sb-admin-2.min.js"></script>
+  <script>
+    const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
+    const cartStatusText = document.getElementById("cart-status-text");
+    const cartTotalText = document.getElementById("cart-total-text");
+    const topbarCartTotal = document.getElementById("topbar-cart-total");
+    const sidebarCartTotal = document.getElementById("sidebar-cart-total");
+
+    let cartTotal = Number(localStorage.getItem("cartTotal") || 0);
+    let cartCount = Number(localStorage.getItem("cartCount") || 0);
+
+    function renderCartSummary() {
+      cartTotalText.textContent = `Toplam: ${cartTotal} TL`;
+      topbarCartTotal.textContent = `Sepet (${cartTotal} TL)`;
+      sidebarCartTotal.textContent = `Sepet (${cartTotal} TL)`;
+    }
+
+    renderCartSummary();
+
+    addToCartButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const price = Number(button.dataset.price || 0);
+        cartTotal += price;
+        cartCount += 1;
+        localStorage.setItem("cartTotal", String(cartTotal));
+        localStorage.setItem("cartCount", String(cartCount));
+        cartStatusText.textContent = "Sepete eklendi.";
+        renderCartSummary();
+      });
+    });
+  </script>
+</body>
+</html>
